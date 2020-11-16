@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         @Test
         void findMax () {
             long[] months = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-            long expected = 1;
+            long expected = 6;
             long actual = service.findMax(months);
             assertEquals(expected, actual);
         }

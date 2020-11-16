@@ -22,12 +22,13 @@ public class StatsService {
     public long findMax (long[] months) {
         int i = 1;
         int monthIndex = 1;
-        int max = 0;
+        long max = months[0];
         for (long month : months) {
-            if (max <= monthIndex) {
-                max = monthIndex;
+            if (max < month) {
+                max = month;
                 monthIndex = i;
             }
+            i++;
         }
         return monthIndex;
     }
@@ -47,11 +48,7 @@ public class StatsService {
     }
 
     public long sumBelowAverage (long[] months) {
-        long sum = 0;
-        for (long month : months) {
-            sum += month;
-        }
-        long average = sum / months.length;
+        long average = calculateAverage(months);
         int belowAverage = 0;
         for (long month : months) {
             if (month < average) {
@@ -62,11 +59,7 @@ public class StatsService {
     }
 
     public long sumAboveAverage (long[] months) {
-        long sum = 0;
-        for (long month : months) {
-            sum += month;
-        }
-        long average = sum / months.length;
+        long average = calculateAverage(months);
         int aboveAverage = 0;
         for (long month : months) {
             if (month > average) {
